@@ -1,4 +1,3 @@
-#Dogukan Arasli 2517522
 import numpy as np
 def my_train_test_split(data_x,data_y,train_to_test_ratio = 0.8,number_of_folds = None):
     #This function both includes train/test split and folding scheme
