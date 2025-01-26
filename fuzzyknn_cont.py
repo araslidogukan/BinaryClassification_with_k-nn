@@ -1,4 +1,3 @@
-#Dogukan Arasli 2517522
 import numpy as np
 def my_cont_fuzzyknn(train_data_x,train_data_y,test_data_x,test_data_y,k,m):
     epsilon = 1e-10
