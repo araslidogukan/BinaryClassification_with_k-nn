@@ -1,4 +1,3 @@
-#Dogukan Arasli 2517522
 import numpy as np
 def my_min_max_scaler(train,test):
     num_of_attr = train.shape[1]
