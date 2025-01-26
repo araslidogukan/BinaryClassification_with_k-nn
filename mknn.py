@@ -1,4 +1,3 @@
-#Dogukan Arasli 2517522
 import numpy as np
 def my_mknn(train_data_x,train_data_y,test_data_x,test_data_y,k):
     num_of_train_data = train_data_x.shape[0]
