@@ -1,15 +1,14 @@
-#Dogukan Arasli 2517522
 import pandas as pd
 import numpy as np
-from mknn_ID2517522 import my_mknn
-from partition_ID2517522 import my_train_test_split
-from MinMaxScaler_ID2517522 import my_min_max_scaler
-from fuzzyknn_ID2517522 import my_fuzzyknn
-from rnn_ID2517522 import my_rnn
-from fuzzyknn_cont_ID2517522 import my_cont_fuzzyknn
-from rnn_modified_ID2517522 import my_modified_rnn
+from mknn import my_mknn
+from partition import my_train_test_split
+from MinMaxScaler import my_min_max_scaler
+from fuzzyknn import my_fuzzyknn
+from rnn2 import my_rnn
+from fuzzyknn_cont import my_cont_fuzzyknn
+from rnn_modified import my_modified_rnn
 
-df = pd.read_excel('CA3_ID2517522/Wisconsin Diagnostic Breast Cancer.xlsx')
+df = pd.read_excel('data_directory.xlsx')
 
 #Getting labels (with assumption that labels are on the last axis)
 x = df.iloc[:,:-1].values
@@ -53,8 +52,7 @@ for k in range(1,11):
     train_accs_d.append(train_acc_k)
     test_accs_d.append(test_acc_k)
 
-
-for r in np.linspace(0,1**(1/10),10):
+for r in np.linspace(0,1**(1/10),10): #10 is number of attributes
     train_acc_k, test_acc_k = my_rnn(train_x_scaled,train_y,test_x_scaled,test_y,r)
     train_accs_e.append(train_acc_k)
     test_accs_e.append(test_acc_k)
@@ -158,7 +156,7 @@ for j in range(5):
 
 
 #Write the results into excel (TAKE INTO COMMENT IF ERROR)
-with pd.ExcelWriter('CA3_ID2517522/CA3results_ID2517522.xlsx',engine='openpyxl',mode='a') as writer:
+with pd.ExcelWriter('results_directory.xlsx',engine='openpyxl',mode='a') as writer:
     pd.DataFrame(train_accs_a).to_excel(writer,sheet_name='Part a Training Error',index=False,header=False)
     pd.DataFrame(test_accs_a).to_excel(writer,sheet_name='Part a Test Error',index=False,header=False)
     pd.DataFrame(train_accs_b).to_excel(writer,sheet_name='Part b Training Error',index=False,header=False)
